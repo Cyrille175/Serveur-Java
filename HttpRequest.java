@@ -17,4 +17,10 @@ public class HttpRequest {
         }
     }
 
+    public String get_methode() {
+        return methode;
+    }
+    public String get_url() {
+        return url;
+    }
 }
