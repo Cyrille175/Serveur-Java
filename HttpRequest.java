@@ -6,14 +6,28 @@ import java.net.Socket;
 public class HttpRequest {
     String methode;
     String url;
+
+    HttpRequest(Socket socket) {
+        readClientRequest(socket);
+    }
+
     public void readClientRequest(Socket socket) {
         try (BufferedReader entree = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
             String request = entree.readLine();
-            String[] parties = request.split(" ");
-            methode = parties[0];
-            url = parties[1];
+            System.out.println("Request: " + request);
+            if(request != null) {
+                String[] parties = request.split(" ");
+                if (parties.length >= 2) {
+                    methode = parties[0];
+                    url = parties[1];
+                }
+                else {
+                    methode = "methode non reconnue";
+                    url = "url non reconnue";
+                }
+            }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("readClientRequest error");
         }
     }
 

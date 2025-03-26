@@ -3,20 +3,19 @@ import java.net.Socket;
 
 public class HttpContext {
     Socket socket;
-    HttpRequest request ;
-    HttpResponse response;
-    HttpContext(Socket Socket) {
-        socket = Socket;
-        request = new HttpRequest();
-        response = new HttpResponse(Socket);
+
+    HttpContext(Socket Sockets) {
+        socket = Sockets;
     }
+
     HttpRequest get_request() {
-        return request;
+        return new HttpRequest(socket);
     }
     HttpResponse get_response() {
-        return response;
+        return new HttpResponse(socket);
     }
     public void close() throws IOException {
         socket.close();
     }
 }
+
