@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serveur Java</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">Custom Java HTTP Server</p>
+                <h1>Simple backend demo with a clean interface</h1>
+                <p class="hero-text">
+                    This project demonstrates a lightweight Java web server with routing,
+                    JSON responses, static file serving and multithreaded request handling.
+                </p>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <section class="panel actions-panel">
+                <div class="panel-header">
+                    <h2>Available actions</h2>
+                    <p>Click a button to call the server and display the response below.</p>
+                </div>
+
+                <div class="actions-grid">
+                    <button class="action-btn" id="healthBtn">Check server health</button>
+                    <button class="action-btn" id="timeBtn">Get server time</button>
+                    <button class="action-btn" id="helloBtn">Say hello</button>
+                </div>
+
+                <div class="custom-echo">
+                    <label for="messageInput">Custom message</label>
+                    <div class="input-row">
+                        <input
+                            id="messageInput"
+                            type="text"
+                            placeholder="Type a message to send to the echo endpoint"
+                        />
+                        <button class="action-btn primary" id="echoBtn">Send</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel response-panel">
+                <div class="panel-header">
+                    <h2>Server response</h2>
+                    <p>The result of your request will appear here.</p>
+                </div>
+
+                <div class="response-meta">
+                    <span id="statusBadge" class="badge neutral">Waiting</span>
+                    <span id="endpointLabel" class="endpoint-label">No endpoint called yet</span>
+                </div>
+
+                <pre id="responseBox" class="response-box">Ready to test the server.</pre>
+            </section>
+        </main>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
